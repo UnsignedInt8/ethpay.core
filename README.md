@@ -1,0 +1,3 @@
+# ethpay.core
+
+ETHPay Core
