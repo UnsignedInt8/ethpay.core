@@ -28,7 +28,7 @@ export default class Payment {
      * @param param 
      * @returns Tx hash, or empty string if failed
      */
-    public static async send({ to, value, currency }: { to: string, value?: number | string, currency: 'eth' | 'usdc' | 'usdt' | 'dai' | 'sai' | 'pax' | 'tusd' | 'gusd' | 'usdx' | 'husd' | 'usdk' }) {
+    public static async send({ to, value, currency, data }: { to: string, value?: number | string, data?: string, currency: 'eth' | 'usdc' | 'usdt' | 'dai' | 'sai' | 'pax' | 'tusd' | 'gusd' | 'usdx' | 'husd' | 'usdk' }) {
         if (!Metamask.hasWeb3()) {
             return '';
         }
@@ -43,7 +43,8 @@ export default class Payment {
                 to,
                 from,
                 gas: "0x5208",
-                value: ethers.utils.parseEther(`${value || 0}`).toHexString()
+                value: ethers.utils.parseEther(`${value || 0}`).toHexString(),
+                data
             });
         } else {
             const contract = Contracts[currency] as { addr: string, decimals: number };
