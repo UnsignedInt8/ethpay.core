@@ -53,4 +53,31 @@ export default class Metamask {
             }
         });
     }
+
+    /**
+     * Get the balance of specified address
+     * @param address 
+     * @returns Balance hex string in wei
+     */
+    public static async getBalance(address?: string) {
+        let addr = address ?? await this.requestAccounts()[0];
+        if (!addr) {
+            return '0x00';
+        }
+
+        return new Promise<string>(resolve => {
+            try {
+                window?.['ethereum']?.send({ method: 'eth_getBalance', params: [addr, 'latest'] }, (err: any, result: any) => {
+                    if (err) {
+                        resolve('0x00');
+                        return;
+                    }
+
+                    resolve(result?.result ?? '0x00');
+                })
+            } catch{
+                resolve('0x00');
+            }
+        });
+    }
 }

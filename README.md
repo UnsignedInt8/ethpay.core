@@ -1,3 +1,4 @@
-# ethpay.core
+# ETHPay.Core
 
-ETHPay Core
+ETHPay core lib for ETHPay React/Vue/Angular
+

@@ -4,6 +4,9 @@ import ERC20Abi from './ERC20Abi';
 import Metamask from './Metamask';
 import Contracts from './Contracts';
 
+/**
+ * High level utility class
+ */
 export default class Payment {
     /**
      * build ERC20 transfering ABI
