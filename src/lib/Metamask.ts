@@ -7,7 +7,7 @@ export default class Metamask {
     return window?.['ethereum']?.['isMetamask'] ?? false;
   }
 
-  static getProvider() {
+  public static getProvider() {
     return window?.['ethereum'] || window?.['web3'];
   }
 
