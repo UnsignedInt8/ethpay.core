@@ -3,7 +3,7 @@ export default class Metamask {
     return typeof window?.['ethereum'] !== 'undefined';
   }
 
-  public static hasMetamask() {
+  public static isMetamask() {
     return window?.['ethereum']?.['isMetamask'] ?? false;
   }
 
@@ -16,6 +16,15 @@ export default class Metamask {
   }
 
   /**
+   * Listening for all events specified in EIP 1193 .
+   * @param event event name, like 'accountsChanged', 'chainChanged'
+   * @param callback Callback
+   */
+  public static async on(event: string, callback: Function) {
+    this.getProvider().on(event, callback)
+  }
+
+  /**
    * @returns Returns an array of accounts, currently only one account would be returned.
    */
   public static async requestAccounts() {
@@ -23,7 +32,7 @@ export default class Metamask {
       // For old metamask
       const accounts = await window?.['ethereum'].enable();
       return accounts as string[];
-    } catch (error) {}
+    } catch (error) { }
 
     try {
       // You now have an array of accounts!
