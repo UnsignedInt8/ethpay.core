@@ -1,6 +1,6 @@
 {
   "name": "ethpay.core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ETHPay Core",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
