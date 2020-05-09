@@ -50,7 +50,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "ethers": "^4.0.43"
+    "ethers": "^4.0.47"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
@@ -69,7 +69,7 @@
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "ava": {
     "failFast": true,
@@ -84,9 +84,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "prettier": {
-    "singleQuote": true
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
